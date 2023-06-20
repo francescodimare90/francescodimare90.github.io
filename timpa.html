@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timpa</title>
+</head>
+<body>
+    <p style="text-align: center;"><span style="font-size: 20px;"><strong><h1 id="welcome-text"></h1></strong></span></p>
+    
+    
+
+    <script>
+        // Funzione per ottenere il valore del parametro nell'URL
+        function getParameterByName(name) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Ottenere il valore del parametro "nome" nell'URL
+        var num = getParameterByName('num');
+
+        // Aggiornare il testo nella pagina con il valore del parametro
+        var welcomeText = document.getElementById('welcome-text');
+        welcomeText.innerText = "QUESTA E' LA BOTTIGLIA NUMERO "+ num+ " DI 1000 ";
+    </script>
+</body>
+</html>

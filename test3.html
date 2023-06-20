@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagina dinamica</title>
+</head>
+<body>
+    <h1 id="welcome-text"></h1>
+    
+
+    <script>
+        // Funzione per ottenere il valore del parametro nell'URL
+        function getParameterByName(name) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Ottenere il valore del parametro "nome" nell'URL
+        var nome = getParameterByName('nome');
+
+        // Aggiornare il testo nella pagina con il valore del parametro
+        var welcomeText = document.getElementById('welcome-text');
+        welcomeText.innerText = "Benvenuto " + nome;
+    </script>
+</body>
+</html>
