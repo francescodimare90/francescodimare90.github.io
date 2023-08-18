@@ -439,9 +439,9 @@ if (window.CookieControl.isCookieAllowed("jimdo_analytics") || window.CookieCont
 
         pdf.setFontSize(25);
         // Aggiungi il nome e il cognome nella posizione desiderata
-        pdf.text(`${nome} ${cognome}`, 118, 90);
+        pdf.text(`${nome} ${cognome}`, 115, 90);
         pdf.setFontSize(18);
-        pdf.text(`${num}` , 168, 108);
+        pdf.text(`${num}` , 167, 108);
 
         // Salvataggio del PDF
         pdf.save("certificato.pdf");
